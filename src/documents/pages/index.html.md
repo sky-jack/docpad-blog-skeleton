@@ -1,7 +1,7 @@
 ---
 layout: 'default'
-title: 'homepage title'
-pageOrder: 1
+title: 'Home'
+isPage: true
 ---
 
 ## The INDEX 

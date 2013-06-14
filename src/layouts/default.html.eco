@@ -36,13 +36,26 @@
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
+    <div class="page">
+		<header>
+			<h1> </h1>
+			<ul class="lineup" id="main-nav" role="menubar">
+			    <% for page in @getCollection("pages").toJSON(): %>
+			        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+			            <a href="<%= page.url %>">
+			                <%= page.title %>
+			            </a>
+			        </li>
+			    <% end %>
+			</ul>
+		</header>
+		<article>
+			<%- @content %>
+		</article>
+		<footer>
 
-	<header></header>
-	<article>
-		<%- @content %>
-	</article>
-	<footer></footer>
-
+		</footer>
+	</div>	
 	<!-- DocPad Scripts + Our Own -->
 	<%- @getBlock('scripts').add(@getGruntedScripts()).toHTML() %>
 </body>

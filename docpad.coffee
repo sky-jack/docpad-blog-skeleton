@@ -33,7 +33,6 @@ docpadConfig = {
 				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
 				"""
 
-
 		# -----------------------------
 		# Helper Functions
 
@@ -79,6 +78,15 @@ docpadConfig = {
 				return value.indexOf('.min.js') > -1
 			_.map scripts, (value) ->
 				return value.replace 'out', ''
+
+
+
+	collections:
+		pages: ->
+			@getCollection('html').findAllLive({pageOrder: $exists: true},[pageOrder:1,title:1])
+
+		posts: ->
+			@getCollection('documents').findAllLive({relativeOutDirPath:'posts'},[date:-1])	
 
 
 	# =================================

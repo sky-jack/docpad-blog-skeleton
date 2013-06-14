@@ -1,0 +1,13 @@
+---
+layout: 'default'
+---
+<%- @content %>
+
+
+<ul>
+    <% for document in @getCollection("posts").toJSON(): %>
+		<li typeof="sioc:Page" about="<%= document.url %>" class="<%= 'active' if @document.url is document.url %>">
+			<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+		</li>
+    <% end %>
+</ul>
