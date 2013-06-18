@@ -1,0 +1,14 @@
+---
+layout: 'default'
+---
+
+<div class="grid space-above">
+	<% for document in @getCollection("posts").toJSON(): %>
+		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-4 <%= 'active' if @document.url is document.url %>">
+			<article class="square-item module">
+				<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+			</article>
+		</div>
+    <% end %>
+</div>
+

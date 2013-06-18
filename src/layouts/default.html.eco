@@ -37,24 +37,30 @@
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
     <div class="page">
-		<header>
-			<h1> </h1>
-			<ul class="lineup" id="main-nav" role="menubar">
-			    <% for page in @getCollection("pages").toJSON(): %>
-			        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-			            <a href="<%= page.url %>">
-			                <%= page.title %>
-			            </a>
-			        </li>
-			    <% end %>
-			</ul>
-		</header>
-		<article>
-			<%- @content %>
-		</article>
-		<footer>
-
-		</footer>
+			<header class="grid" >
+				<div class="col dsk-6">
+					<h1 class="logo" role="banner">Title</h1>
+				</div>
+				<div class="col dsk-6">
+					<ul class="lineup" id="main-nav" role="menubar">
+					    <% for page in @getCollection("pages").toJSON(): %>
+					        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+					            <a href="<%= page.url %>">
+					                <%= page.title %>
+					            </a>
+					        </li>
+					    <% end %>
+					</ul>
+				</div>
+			</header>
+			<article>
+				<%- @content %>
+			</article>
+			<footer role="contentinfo" class="space-above grid">
+				<p class="cramp col dsk-12 smallprint" >Copyright 2013 </p>
+				<p class="cramp col dsk-12 smallprint" >Blah Blah </p>
+			</footer>
+		</div>
 	</div>	
 	<!-- DocPad Scripts + Our Own -->
 	<%- @getBlock('scripts').add(@getGruntedScripts()).toHTML() %>

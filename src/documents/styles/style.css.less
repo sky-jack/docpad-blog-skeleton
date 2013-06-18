@@ -13,7 +13,7 @@
    ========================================================================== */
 
 
-@import "../../vendor/frag.css"
+@import "../../vendor/frag/build/frag.css";
 
 
 body {
@@ -21,16 +21,53 @@ body {
     font-size: 1.8rem;
     line-height: 2.2rem;
 }
+/* ==========================================================================
+   base colors
+   ========================================================================== */
+
+@base-color: #333;
+
+/* ==========================================================================
+   base typography
+   ========================================================================== */
+
+
+html { 
+    font-size: 75%; 
+} 
+
+body { 
+    font-size: 14px;
+    font-size: 1.7rem;
+}
 
 
 .page {
     margin-left: auto;
-    margin-right: auto;    
+    margin-right: auto;
+    padding: 5% 3%;    
 }
+
+footer {
+
+}
+
+.module {
+    border: 1px solid @base-color;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
 
+/* used to set up responsive square elements */
+
+.square-item {
+    width: 100%;
+    height: 0px;
+    padding-bottom: 97%;
+    overflow: hidden;
+}
 /*
  * Image replacement
  */
