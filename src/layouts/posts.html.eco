@@ -7,7 +7,14 @@ layout: 'default'
 <ul>
     <% for document in @getCollection("posts").toJSON(): %>
 		<li typeof="sioc:Page" about="<%= document.url %>" class="<%= 'active' if @document.url is document.url %>">
-			<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+			<article>
+				<header>
+					<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+					<span class="meta cramp">
+						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
+					</span>
+				</header>
+			</article>
 		</li>
     <% end %>
 </ul>

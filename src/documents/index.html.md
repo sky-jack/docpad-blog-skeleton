@@ -1,6 +1,6 @@
 ---
 layout: 'index'
-title: 'homepage title'
+title: 'Home'
 pageOrder: 1
 ---
 

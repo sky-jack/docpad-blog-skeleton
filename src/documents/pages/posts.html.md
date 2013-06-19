@@ -1,12 +1,9 @@
-å---
+---
 layout: 'posts'
-title: 'This is where posts live'
+title: 'Posts'
 pageOrder: 2
 ---
 
 ## Posts will live here
-
-- [google](http://www.google.com)
-
 
 

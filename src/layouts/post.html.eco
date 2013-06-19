@@ -2,8 +2,22 @@
 layout: 'default'
 ---
 
-<div id="post" class="post">
-<%- @content %>
+<div id="post" class="post grid">
+	<article class="col dsk-10">
+		<header>
+			<h1><%= @document.title %></a></h1>
+			<span class="meta cramp">
+				<time datetime="<%= @document.date.toDateString() %>"><%= @document.date.toDateString() %></time> 
+			</span>
+		</header>
+			<%- @content %>
+		<footer>
+
+		</footer>
+	</article>
+	<aside class="col dsk-2">
+		
+	</aside>
 </div>
 
 <footer>

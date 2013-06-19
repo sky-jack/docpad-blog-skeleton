@@ -6,7 +6,14 @@ layout: 'default'
 	<% for document in @getCollection("posts").toJSON(): %>
 		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-4 <%= 'active' if @document.url is document.url %>">
 			<article class="square-item module">
-				<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+				<header>
+					<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+					<span class="meta cramp smallprint">
+						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
+					</span>
+					
+				</header>
+
 			</article>
 		</div>
     <% end %>

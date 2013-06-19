@@ -38,11 +38,11 @@
     <![endif]-->
     <div class="page">
 			<header class="grid" >
-				<div class="col dsk-6">
-					<h1 class="logo" role="banner">Title</h1>
+				<div class="col dsk-4">
+					<h1 class="logo h3" role="banner">Title</h1>
 				</div>
-				<div class="col dsk-6">
-					<ul class="lineup" id="main-nav" role="menubar">
+				<div class="col dsk-8">
+					<ul class="lineup nav" id="main-nav" role="menubar">
 					    <% for page in @getCollection("pages").toJSON(): %>
 					        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
 					            <a href="<%= page.url %>">
