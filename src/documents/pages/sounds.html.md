@@ -1,10 +1,10 @@
 ---
-layout: 'posts'
+layout: 'default'
 title: 'Sounds'
 pageOrder: 4
 ---
 
-## Posts will live here
+## I like big sounds and I cannot lie 
 
 - [google](http://www.google.com)
 

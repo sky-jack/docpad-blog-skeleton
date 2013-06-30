@@ -16,7 +16,15 @@ layout: 'default'
 		</footer>
 	</article>
 	<aside class="col dsk-2">
-		
+
+
+		<ul>
+			<% if @document.tags: %>
+				<% for tag in @document.tags: %>
+				<li><a href="/tags/<%= tag %>.html"><%= tag %></li></a>
+				<% end %>
+			<% end %>	
+		</ul>
 	</aside>
 </div>
 
@@ -26,7 +34,7 @@ layout: 'default'
 <h3>Related Posts</h3>
 <nav class="linklist">
 <% for document in @document.relatedDocuments: %>
-<li><span><%= document.date.toShortDateString() %></span>
+<li><span><%= document.date.toDateString() %></span>
 &raquo;
 <a href="<%= document.url %>"><%= document.title %></a></li>
 <% end %>
@@ -34,3 +42,4 @@ layout: 'default'
 </section>
 <% end %>
 </footer>
+

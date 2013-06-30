@@ -36,8 +36,9 @@
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
-    <div class="page">
-			<header class="grid" >
+    <div class="wrapper" >
+   		<div class="page">
+			<header class="grid  space-above" >
 				<div class="col dsk-4">
 					<h1 class="logo h3" role="banner">Title</h1>
 				</div>
@@ -56,9 +57,11 @@
 			<article>
 				<%- @content %>
 			</article>
-			<footer role="contentinfo" class="space-above grid">
-				<p class="cramp col dsk-12 smallprint" >Copyright 2013 </p>
-				<p class="cramp col dsk-12 smallprint" >Blah Blah </p>
+			<footer role="contentinfo" class="typearea grid">
+				<p class="cramp col dsk-3  tab-6 smallprint" >Copyright 2013 </p>
+				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
+				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
+				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
 			</footer>
 		</div>
 	</div>	

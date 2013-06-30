@@ -2,16 +2,17 @@
 layout: 'default'
 ---
 
-<div class="grid space-above">
+<div class="grid">
 	<% for document in @getCollection("posts").toJSON(): %>
-		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-4 <%= 'active' if @document.url is document.url %>">
+		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-3 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
 			<article class="square-item module">
-				<header>
-					<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
-					<span class="meta cramp smallprint">
+
+				<img src="/images/<%= document.mainImage %>" class="big-thumb" />
+				<header class="pull-out cramped">
+					<a class="cramp" href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+					<span class="meta smallprint">
 						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
 					</span>
-					
 				</header>
 
 			</article>

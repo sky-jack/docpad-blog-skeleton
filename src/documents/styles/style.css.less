@@ -5,15 +5,9 @@
    ========================================================================== */
 
 
-@import "../../vendor/pigeon.css";
 
- 
-/* ==========================================================================
-  Import Pigeon CSS
-   ========================================================================== */
+@import "../vendor/pigeon.css";
 
-
-@import "../../vendor/frag/build/frag.css";
 
 
 body {
@@ -26,13 +20,15 @@ body {
    ========================================================================== */
 
 @base-color: #333;
+@darkest-color: #000;
+@highlight-color: lighten(@darkest-color, 80%);
 
 /* ==========================================================================
    base typography
    ========================================================================== */
 
 
-@gutter: 20px;
+@gutter: 10px;
 
 
 html { 
@@ -48,20 +44,35 @@ body {
 /* ==========================================================================
    base layout
    ========================================================================== */
-
+.wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .page {
     margin-left: auto;
     margin-right: auto;
-    padding: 3%;    
-}
-
-footer {
-
+    max-width: 1200px;
 }
 
 .module {
-    border: 1px solid @base-color;
+    border: 1px solid @highlight-color;   
     margin-bottom: @gutter *2;
+    overflow: hidden;
+    position: relative;
+}
+.pull-out {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: url(img-assets/black-0.5.png) repeat;
+}
+.pull-out a {
+  display: block;
+}
+.big-thumb {
+  width: 100%;
 }
 
 .nav  {
@@ -70,6 +81,24 @@ footer {
 .nav li {
     margin-right: @gutter;
 }
+
+
+
+
+/* Horizontal Rule */
+hr {
+  border: 0;
+  background: none;
+  outline: 0;
+  background-color: #ddd;
+  margin: 2em 0;
+  *margin: 1em 0;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 1px;
+}
+
+
 
 /* ==========================================================================
    Helper classes
@@ -111,16 +140,18 @@ footer {
     *zoom: 1;
 }
 
+/* ========================================================================== 
+* Import grid
+ ==========================================================================  */
+
+ @import "frag.less"; 
+
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
 
 @media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+    /* Style adjustments for viewports that meet the condition 
 }
-
+*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
     /* Style adjustments for high resolution devices */
@@ -134,7 +165,7 @@ footer {
 @media print {
     * {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        color: #000 !important; // Black prints faster: h5bp.com/s
         box-shadow:none !important;
         text-shadow: none !important;
     }
@@ -152,9 +183,8 @@ footer {
         content: " (" attr(title) ")";
     }
 
-    /*
-     * Don't show links for images, or javascript/internal links
-     */
+    //Don't show links for images, or javascript/internal links
+    
 
     .ir a:after,
     a[href^="javascript:"]:after,
@@ -169,7 +199,7 @@ footer {
     }
 
     thead {
-        display: table-header-group; /* h5bp.com/t */
+        display: table-header-group; // h5bp.com/t 
     }
 
     tr,
@@ -197,3 +227,4 @@ footer {
         page-break-after: avoid;
     }
 }
+ 
