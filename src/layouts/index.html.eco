@@ -6,10 +6,11 @@ layout: 'default'
 	<% for document in @getCollection("posts").toJSON(): %>
 		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-3 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
 			<article class="square-item module">
-
-				<img src="/images/<%= document.mainImage %>" class="big-thumb" />
+				<a href="<%= document.url %>" >
+					<img src="/images/<%= document.mainImage %>" class="big-thumb" />
+				</a>	
 				<header class="pull-out cramped">
-					<a class="cramp" href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+					<a class="h6 cramp" href="<%= document.url %>" property="dc:title"><%= document.title %></a>
 					<span class="meta smallprint">
 						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
 					</span>
@@ -20,3 +21,47 @@ layout: 'default'
     <% end %>
 </div>
 
+
+<section class="grid typearea center section" id="mixcloud">
+	
+	<div class="cramp col dsk-3  tab-4 mob-12">
+			<h1 class="h3"> Mixcloud </h4>
+		    <% for mix in @feedr.feeds.mixcloud.data: %>
+			   <article class="square-item module">
+			   <header class="pull-out cramped">
+			   		  <h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
+			   	</header>
+			       
+			            <a href="<%= mix.url %>" title="View on Mixcloud">
+			            	<img src="<%= mix.pictures.large %>" class="big-thumb" />
+			            </a>
+			    </article>   
+		    <% end %>
+			
+		
+	</div>
+	<div class="cramp col dsk-3  tab-4 mob-12">
+		<h1 class="h3"> Flickr</h1>
+		<%= console.log(@feedr.feeds.flickr.photos) %>
+		    <% for photo in @feedr.feeds.flickr.photos.photo: %>
+			   <article class="square-item module">
+
+			    <% photo = photo["@"] %>
+	            <h1 class="h6"><a href="<%= photo.url_sq %>" title=" <%= photo.title %>"></a></h1>
+	            	<img src="<%= photo.url_m %>" class="big-thumb" />
+	            </a>
+			    </article>   
+		    <% end %>
+			
+		
+	</div>
+	<div class="cramp col dsk-3  tab-4 mob-12">
+			<h1 class="h3">SoundCloud</h1>
+			
+	</div>
+
+	<div class="cramp col dsk-3  tab-4 mob-12">
+			<h1 class="h3">Bandcamp</h1>
+			
+	</div>
+</section>

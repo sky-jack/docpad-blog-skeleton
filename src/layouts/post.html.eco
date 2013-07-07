@@ -3,43 +3,66 @@ layout: 'default'
 ---
 
 <div id="post" class="post grid">
-	<article class="col dsk-10">
-		<header>
+
+
+	<article class="col dsk-8 dsk-suffix-2 dsk-prefix-2 tab-10 tab-prefix-1 tab-suffix-1">
+		<header class="space-above-more">
 			<h1><%= @document.title %></a></h1>
-			<span class="meta cramp">
+
+			<div class="meta center space smallprint">
+				
 				<time datetime="<%= @document.date.toDateString() %>"><%= @document.date.toDateString() %></time> 
-			</span>
+				<ul class="lineup tags">
+					<% if @document.tags: %>
+						<% for tag in @document.tags: %>
+						<li><a href="/tags/<%= tag %>.html"><%= tag %></a></li>
+						<% end %>
+					<% end %>	
+				</ul>
+			</div>
 		</header>
+
+		<% if(@document.mainImage) : %>
+			<img src="/images/<%= @document.mainImage %>" alt="<%= @document.title %>" class="full-image space-more" />
+		<% end %>
+	
 			<%- @content %>
 		<footer>
 
 		</footer>
 	</article>
-	<aside class="col dsk-2">
 
 
-		<ul>
-			<% if @document.tags: %>
-				<% for tag in @document.tags: %>
-				<li><a href="/tags/<%= tag %>.html"><%= tag %></li></a>
-				<% end %>
-			<% end %>	
-		</ul>
-	</aside>
 </div>
 
-<footer>
-<% if @document.relatedDocuments and @document.relatedDocuments.length: %>
-<section id="related">
-<h3>Related Posts</h3>
-<nav class="linklist">
-<% for document in @document.relatedDocuments: %>
-<li><span><%= document.date.toDateString() %></span>
-&raquo;
-<a href="<%= document.url %>"><%= document.title %></a></li>
-<% end %>
-</nav>
-</section>
-<% end %>
-</footer>
+<nav class="sub grid space-above-more">
+	<div class="sub-nav  col dsk-4 dsk-prefix-2" >
+		<% if @document.relatedDocuments and @document.relatedDocuments.length: %>
+			<ul class="stack">
+				<h4>Related Posts</h4>
+				<% for document in @document.relatedDocuments: %>
+					<li><a href="<%= document.url %>"><%= document.title %></a></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+
+
+	<div class="sub-nav right col dsk-4 dsk-suffix-2" >
+		<% if @document.relatedDocuments and @document.relatedDocuments.length: %>
+			<section id="related">
+				<h4>Categories</h4>
+				<ul class="stack">
+					<% for tag, data of @getTagCloud(): %>
+
+					<li><a href="<%= data.url %>" data-tag-count="<%= data.count %>" data-tag-weight="<%= data.weight %>"><%= tag %></a></li>
+					<% end %>
+				</ul>	
+			</section>
+		<% end %>
+	</div>
+</nav>	
+
+
+
 

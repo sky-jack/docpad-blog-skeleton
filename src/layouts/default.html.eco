@@ -38,11 +38,9 @@
     <![endif]-->
     <div class="wrapper" >
    		<div class="page">
-			<header class="grid  space-above" >
-				<div class="col dsk-4">
-					<h1 class="logo h3" role="banner">Title</h1>
-				</div>
-				<div class="col dsk-8">
+			<header class="section space-above" >
+				
+					<h1 class="logo h3" role="banner"><%= @site.title %></h1>
 					<ul class="lineup nav" id="main-nav" role="menubar">
 					    <% for page in @getCollection("pages").toJSON(): %>
 					        <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
@@ -52,16 +50,13 @@
 					        </li>
 					    <% end %>
 					</ul>
-				</div>
 			</header>
 			<article>
 				<%- @content %>
 			</article>
-			<footer role="contentinfo" class="typearea grid">
-				<p class="cramp col dsk-3  tab-6 smallprint" >Copyright 2013 </p>
-				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
-				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
-				<p class="cramp col dsk-3 tab-6 smallprint" >Blah Blah </p>
+
+			<footer role="contentinfo" class="typearea center section space space-above">
+				<p class="cramp smallprint" >Copyright 2013 </p>
 			</footer>
 		</div>
 	</div>	

@@ -51,6 +51,25 @@
     //iterator 
     .iterator(@index) when (@index > 0) {
 
+        //prefix column
+        .@{prefix}prefix-@{index}  {
+            margin-left: (100% / @frag-column-count) * @index;
+
+            .isoldie() when (@oldie-support = true) {
+                *margin-left: (floor(@frag-oldie-width / @frag-column-count) * @index) - (@frag-gutter-width * 2);
+            }
+            .isoldie();
+        }
+
+        //suffix column
+          .@{prefix}suffix-@{index}  {
+            margin-right: (100% / @frag-column-count) * @index;
+
+            .isoldie() when (@oldie-support = true) {
+                *margin-right: (floor(@frag-oldie-width / @frag-column-count) * @index) - (@frag-gutter-width * 2);
+            }
+            .isoldie();
+        }
         // create the grid column selectors
         .@{prefix}@{index} {
             width: (100% / @frag-column-count) * @index;
@@ -148,8 +167,6 @@
     }
     .isoldie();
 }
-
-
 
 /* Grid: Base columns */
 .frag-cols (dsk-, @frag-oldie-support);

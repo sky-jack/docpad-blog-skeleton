@@ -6,52 +6,78 @@
 
 
 
-@import "../vendor/pigeon.css";
+@import "../../files/vendor/pigeon.less";
 
-
-
-body {
-
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-}
 /* ==========================================================================
    base colors
    ========================================================================== */
 
 @base-color: #333;
 @darkest-color: #000;
+@lightest-color: #ececec;
 @highlight-color: lighten(@darkest-color, 80%);
+@link-color: #AADD8E6;
 
 /* ==========================================================================
    base typography
    ========================================================================== */
 
 
+@font-face {
+    font-family: 'archivo_narrowRegular';
+    src: url('../fonts/archivonarrow-regular-webfont.eot');
+    src: url('../fonts/archivonarrow-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/archivonarrow-regular-webfont.woff') format('woff'),
+         url('../fonts/archivonarrow-regular-webfont.ttf') format('truetype'),
+         url('../fonts/archivonarrow-regular-webfont.svg#archivo_narrowbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @gutter: 10px;
 
 
 html { 
-    font-size: 75%; 
+    font-size: 75%;
+
 } 
 
 body { 
     font-size: 14px;
     font-size: 1.7rem;
+    font-family: serif;
 }
 
+a {
+  display: inline-block;
+  color: @link-color;
+  text-decoration: none;
+}
+
+/* Heading typography */
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, caption, dt, th {
+   font-family: 'archivo_narrowRegular';
+}
 
 /* ==========================================================================
    base layout
    ========================================================================== */
+
 .wrapper {
-  padding-left: 20px;
-  padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .page {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
+}
+.logo {
+    margin-bottom: 0.2em;
+}
+.section {
+    text-align: center;
 }
 
 .module {
@@ -60,31 +86,77 @@ body {
     overflow: hidden;
     position: relative;
 }
+
+.big-thumb {
+    width: 100%;
+}
+
+.nav  {
+    width: 100%;
+    text-align: center;
+}
+.nav li {
+    margin-right: @gutter / 2;
+    margin-left: @gutter / 2;
+}
+
+.full-image {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Post Styles */
+
+.meta {
+  display: block;
+  font-style: italic;
+}
+.meta .tags {
+  display: inline-block;
+}
+h1 {
+  text-align: center;
+  display: block;
+}
+
+/* Pull out styles */
+
 .pull-out {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  text-align: center;
   background: url(img-assets/black-0.5.png) repeat;
+  text-align: center;
+  
 }
 .pull-out a {
+  display: inline-block;
+  color: @lightest-color;
+  text-decoration: none;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0;
+}
+.pull-out .meta {
   display: block;
 }
-.big-thumb {
-  width: 100%;
+.pull-out time {
+  display: none;
 }
 
-.nav  {
+/*  center content  */
 
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; 
+  text-align: center;
 }
-.nav li {
-    margin-right: @gutter;
+.right {
+  text-align: right;
 }
-
-
-
-
 /* Horizontal Rule */
 hr {
   border: 0;
