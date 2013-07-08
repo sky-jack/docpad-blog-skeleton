@@ -3,18 +3,22 @@ layout: 'default'
 ---
 <%- @content %>
 
-
-<ul>
-    <% for document in @getCollection("posts").toJSON(): %>
-		<li typeof="sioc:Page" about="<%= document.url %>" class="<%= 'active' if @document.url is document.url %>">
-			<article>
-				<header>
-					<a href="<%= document.url %>" property="dc:title"><%= document.title %></a>
-					<span class="meta cramp">
+<div class="grid">
+	<% for document in @getCollection("posts").toJSON(): %>
+		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-3 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
+			<article class="square-item module">
+				<a href="<%= document.url %>" >
+					<img src="/images/<%= document.mainImage %>" class="big-thumb" />
+				</a>	
+				<header class="pull-out cramped">
+					<a class="h6 cramp" href="<%= document.url %>" property="dc:title"><%= document.title %></a>
+					<span class="meta smallprint">
 						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
 					</span>
 				</header>
+
 			</article>
-		</li>
+		</div>
     <% end %>
-</ul>
+</div>
+ 

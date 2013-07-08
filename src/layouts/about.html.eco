@@ -1,0 +1,12 @@
+---
+layout: 'default'
+---
+
+<div class="grid typearea" >
+
+
+	<div class="col dsk-6">
+
+	<%- @content %>
+	</div>
+</div>

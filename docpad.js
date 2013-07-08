@@ -13,7 +13,12 @@ docpadConfig = {
             oldUrls: ['www.website.com', 'website.herokuapp.com'],
             title: "This Website",
             description: "When your website appears in search results in say Google, the text here will be shown underneath your website's title.",
-            keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website"
+            keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
+            social: {
+                Twitter: "https://twitter.com/tenthousandyen",
+                Soundcloud: "http://soundcloud.com/gwilymgold",
+                Facebook: "http://facebook.com"
+            }
         },
         getPreparedTitle: function () {
             if (this.document.title) {
@@ -134,7 +139,7 @@ docpadConfig = {
               url: "http://api.mixcloud.com/skyjack/cloudcasts/"
             },
             flickr: {
-              url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=4&page=2",
+              url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=3&page=2",
               clean: true
             }
           }

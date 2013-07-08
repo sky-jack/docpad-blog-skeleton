@@ -55,8 +55,19 @@
 				<%- @content %>
 			</article>
 
-			<footer role="contentinfo" class="typearea center section space space-above">
-				<p class="cramp smallprint" >Copyright 2013 </p>
+			<footer role="contentinfo" class="typearea center section space space-above grid">
+				<p class="cramp smallprint col dsk-6 mob-12" >Copyright 2013 </p>
+				<div class="col dsk-6 mob-12">
+					<!-- Social Profiles -->
+					<ul class="lineup">
+						<% for socialID,socialAccount of @site.social: %>
+
+						
+							<li><a href="<%= socialAccount %>"> <%=  socialID %> </a> /  </li>
+
+						<% end %>
+					</ul>
+				</div>	
 			</footer>
 		</div>
 	</div>	
