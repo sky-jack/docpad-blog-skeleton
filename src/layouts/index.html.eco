@@ -42,18 +42,12 @@ layout: 'default'
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12">
 		<h1 class="h3"> Flickr</h1>
-		<%= console.log(@feedr.feeds.flickr.photos) %>
 		    <% for photo in @feedr.feeds.flickr.photos.photo: %>
-			   <article class="square-item module">
-
-			    <% photo = photo["@"] %>
-	            <h1 class="h6"><a href="<%= photo.url_sq %>" title=" <%= photo.title %>"></a></h1>
-	            	<img src="<%= photo.url_m %>" class="big-thumb" />
-	            </a>
+		    	<% photo = photo["@"] %>
+				<article class="square-item module">
+	        		<a href="<%= photo.url_n %>" title=" <%= photo.title %>"> <img src="<%= photo.url_m %>" /></a>
 			    </article>   
 		    <% end %>
-			
-		
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12">
 			<h1 class="h3">SoundCloud</h1>

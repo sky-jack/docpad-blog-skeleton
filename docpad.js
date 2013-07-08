@@ -134,7 +134,7 @@ docpadConfig = {
               url: "http://api.mixcloud.com/skyjack/cloudcasts/"
             },
             flickr: {
-              url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_s,url_q,url_m,url_n,url_z,url_c,url_l,url_o&per_page=4",
+              url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=4&page=2",
               clean: true
             }
           }
