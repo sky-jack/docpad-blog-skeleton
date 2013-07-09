@@ -51,6 +51,22 @@ layout: 'default'
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12">
 			<h1 class="h3">SoundCloud</h1>
+			  <% for tune in @feedr.feeds.soundCloud: %>
+		    	<% console.log(tune) %>
+				<article class="square-item module">
+					
+					<header class="pull-out cramped">
+					<h1 class="h6"><a href="<%= tune.permalink_url %>" title="View on Mixcloud" ><%=tune.title %></a> <h1>
+			   		</header>
+			   		<iframe width="100%" height="106" class="soundcloud-player" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= tune.id %>"></iframe>
+			   		<img src="<%= tune.artwork_url %>" width="100%" alt="<%=tune.title %>" />
+
+			   		<img src="<%= tune.waveform_url %>" />
+
+			    </article>   
+		    <% end %>
+
+
 			
 	</div>
 

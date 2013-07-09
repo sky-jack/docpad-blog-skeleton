@@ -73,6 +73,7 @@
 			</footer>
 	</div>	
 	<!-- DocPad Scripts + Our Own -->
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
 	<%- @getBlock('scripts').add(@getGruntedScripts()).toHTML() %>
 </body>
 </html>
