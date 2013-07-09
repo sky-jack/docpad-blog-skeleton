@@ -37,9 +37,8 @@
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
     <div class="wrapper" >
-   		<div class="page">
-			<header class="section space-above" >
-				
+			<header class="divider" >
+				<div class="section space-above grid">	
 					<h1 class="logo h3" role="banner"><%= @site.title %></h1>
 					<ul class="lineup nav" id="main-nav" role="menubar">
 					    <% for page in @getCollection("pages").toJSON(): %>
@@ -50,26 +49,28 @@
 					        </li>
 					    <% end %>
 					</ul>
+				</div>
 			</header>
-			<article>
+			<article class="divider">
 				<%- @content %>
 			</article>
 
-			<footer role="contentinfo" class="typearea center section space space-above grid">
-				<p class="cramp smallprint col dsk-6 mob-12" >Copyright 2013 </p>
-				<div class="col dsk-6 mob-12">
-					<!-- Social Profiles -->
-					<ul class="lineup">
-						<% for socialID,socialAccount of @site.social: %>
+			<footer role="contentinfo" >
+				<div class="typearea section space space-above grid main-footer">	
+					<div class="col dsk-12 mob-12">
+						<!-- Social Profiles -->
+						<ul class="lineup space">
+							<% for socialID,socialAccount of @site.social: %>
 
-						
-							<li><a href="<%= socialAccount %>"> <%=  socialID %> </a> /  </li>
+							
+								<li><a href="<%= socialAccount %>"> <%=  socialID %> </a>   </li>
 
-						<% end %>
-					</ul>
+							<% end %>
+						</ul>
+					</div>
+					<p class="cramp smallprint col dsk-12 mob-12 " >Copyright 2013 </p>
 				</div>	
 			</footer>
-		</div>
 	</div>	
 	<!-- DocPad Scripts + Our Own -->
 	<%- @getBlock('scripts').add(@getGruntedScripts()).toHTML() %>

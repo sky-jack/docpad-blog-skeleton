@@ -22,9 +22,9 @@ layout: 'default'
 </div>
 
 
-<section class="grid typearea center section" id="mixcloud">
+<section class="grid typearea center section space-more" >
 	
-	<div class="cramp col dsk-3  tab-4 mob-12">
+	<div class="cramp col dsk-3  tab-4 mob-12" id="mixcloud-section" >
 			<h1 class="h3"> Mixcloud </h4>
 		    <% for mix in @feedr.feeds.mixcloud.data: %>
 			   <article class="square-item module">
@@ -40,7 +40,7 @@ layout: 'default'
 			
 		
 	</div>
-	<div class="cramp col dsk-3  tab-4 mob-12">
+	<div class="cramp col dsk-3  tab-4 mob-12" id="flickr-section">
 		<h1 class="h3"> Flickr</h1>
 		    <% for photo in @feedr.feeds.flickr.photos.photo: %>
 		    	<% photo = photo["@"] %>
@@ -54,7 +54,7 @@ layout: 'default'
 			
 	</div>
 
-	<div class="cramp col dsk-3  tab-4 mob-12">
+	<div class="cramp col dsk-3  tab-4 mob-12" id="bandcamp-section" >
 			<h1 class="h3">Bandcamp</h1>
 			
 	</div>

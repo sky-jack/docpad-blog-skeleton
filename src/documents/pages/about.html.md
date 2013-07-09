@@ -1,5 +1,5 @@
 ---
-layout: 'default'
+layout: 'infopage'
 title: 'About'
 pageOrder: 3
 ---

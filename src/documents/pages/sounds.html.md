@@ -1,5 +1,5 @@
 ---
-layout: 'default'
+layout: 'infopage'
 title: 'Sounds'
 pageOrder: 4
 ---

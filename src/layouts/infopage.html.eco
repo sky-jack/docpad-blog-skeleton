@@ -1,0 +1,17 @@
+---
+layout: 'default'
+---
+
+<div class="grid typearea page-block" >
+
+
+	<div class="col dsk-8 ">
+
+	<%- @content %>
+	</div>
+
+		<div class="col dsk-3">
+
+	
+	</div>
+</div>
