@@ -136,11 +136,11 @@ docpadConfig = {
         feedr: {
           feeds: {
             mixcloud: {
-              url: "http://api.mixcloud.com/skyjack/cloudcasts/"
+                url: "http://api.mixcloud.com/skyjack/cloudcasts/"
             },
             flickr: {
-              url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=3&page=2",
-              clean: true
+                url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=4&page=2",
+                clean: true
             },
             soundCloud: {
                 url: "https://api.soundcloud.com/users/gwilymgold/tracks.json?client_id=19b869f8a22bf6b9e84806f2834a9b5a"
