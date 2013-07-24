@@ -77,7 +77,8 @@ docpadConfig = {
         },
         posts: function () {
             return this.getCollection('documents').findAllLive({
-                relativeOutDirPath: 'posts'
+                relativeOutDirPath: 'posts',
+                isPagedAuto:  {$ne: true}
             }, [{
                 date: -1
             }]);

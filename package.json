@@ -1,9 +1,9 @@
 {
-  "name": "html5-boilerplate-frontend.docpad",
+  "name": "blog-skeleton.docpad",
   "version": "0.1.0",
   "private": true,
   "description": "HTML5 Boilerplate skeleton for DocPad. Bare essentials for building a modern website with best practices. Adds frontend plugins asset compilation.",
-  "homepage": "https://github.com/lukekarrys/html5-boilerplate.docpad",
+  "homepage": "https://donebecause.co.uk",
   "keywords": [
     "docpad-skeleton",
     "docpad",
@@ -47,7 +47,8 @@
     "docpad-plugin-cleanurls": "~2.5.0",
     "docpad-plugin-related": "~2.0.5",
     "docpad-plugin-tagging": "~2.0.1",
-    "docpad-plugin-feedr": "~2.5.0"
+    "docpad-plugin-feedr": "~2.5.0",
+    "docpad-plugin-paged": "~2.2.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

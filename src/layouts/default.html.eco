@@ -60,6 +60,7 @@
 					<div class="col dsk-12 mob-12">
 						<!-- Social Profiles -->
 						<ul class="lineup space">
+	
 							<% for socialID,socialAccount of @site.social: %>
 
 							

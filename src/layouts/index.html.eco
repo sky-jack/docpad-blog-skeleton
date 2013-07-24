@@ -1,12 +1,11 @@
 ---
+title: home
 layout: 'default'
-isPaged: true
-pagedCollection: 'posts'
-pageSize: 3
 ---
 
+
 <div class="grid">
-	<% for document in @getCollection("posts").toJSON(): %>
+	<% for document in @getCollection('posts').toJSON()[@document.page.startIdx...@document.page.endIdx]: %>
 		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-3 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
 			<article class="square-item module">
 				<a href="<%= document.url %>" >
@@ -21,53 +20,85 @@ pageSize: 3
 
 			</article>
 		</div>
-    <% end %>
+	<% end %>
+
+
+	<div class="pagination col dsk-12">
+		<ul class="lineup">
+			<!-- Previous Page Button -->
+			<% unless @hasPrevPage(): %>
+				<li class="disabled"><span>Prev</span></li>
+			<% else: %>
+				<li><a href="<%= @getPrevPage() %>">Prev</a></li>
+			<% end %>
+
+			<!-- Page Number Buttons -->
+			<% for pageNumber in [0..@document.page.count-1]: %>
+				<% if @document.page.number is pageNumber: %>
+					<li class="active"><span><%= pageNumber + 1 %></span></li>
+				<% else: %>
+					<li><a href="<%= @getPageUrl(pageNumber) %>"><%= pageNumber + 1 %></a></li>
+				<% end %>
+			<% end %>
+
+			<!-- Next Page Button -->
+			<% unless @hasNextPage(): %>
+				<li class="disabled"><span>Next</span></li>
+			<% else: %>
+				<li><a href="<%= @getNextPage() %>">Next</a></li>
+			<% end %>
+		</ul>
+	</div>
+
 </div>
+
+
+
+
 
 
 <section class="grid typearea center section space-more" >
 	
 	<div class="cramp col dsk-3  tab-4 mob-12" id="mixcloud-section" >
 			<h1 class="h3"> Mixcloud </h4>
-		    <% for mix in @feedr.feeds.mixcloud.data: %>
+			<% for mix in @feedr.feeds.mixcloud.data: %>
 			   <article class="square-item module">
 			   <header class="pull-out cramped">
-			   		  <h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
-			   	</header>
-			       
-			            <a href="<%= mix.url %>" title="View on Mixcloud">
-			            	<img src="<%= mix.pictures.large %>" class="big-thumb" />
-			            </a>
-			    </article>   
-		    <% end %>
+					  <h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
+				</header>
+				   
+						<a href="<%= mix.url %>" title="View on Mixcloud">
+							<img src="<%= mix.pictures.large %>" class="big-thumb" />
+						</a>
+				</article>   
+			<% end %>
 			
 		
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12" id="flickr-section">
 		<h1 class="h3"> Flickr</h1>
-		    <% for photo in @feedr.feeds.flickr.photos.photo: %>
-		    	<% photo = photo["@"] %>
+			<% for photo in @feedr.feeds.flickr.photos.photo: %>
+				<% photo = photo["@"] %>
 				<article class="square-item module">
-	        		<a href="<%= photo.url_n %>" title=" <%= photo.title %>"> <img src="<%= photo.url_m %>" /></a>
-			    </article>   
-		    <% end %>
+					<a href="<%= photo.url_n %>" title=" <%= photo.title %>"> <img src="<%= photo.url_m %>" /></a>
+				</article>   
+			<% end %>
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12">
 			<h1 class="h3">SoundCloud</h1>
 			  <% for tune in @feedr.feeds.soundCloud: %>
-		    	<% console.log(tune) %>
 				<article class="square-item module">
 					
 					<header class="pull-out cramped">
 					<h1 class="h6"><a href="<%= tune.permalink_url %>" title="View on Mixcloud" ><%=tune.title %></a> <h1>
-			   		</header>
-			   		<iframe width="100%" height="106" class="soundcloud-player" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= tune.id %>"></iframe>
-			   		<img src="<%= tune.artwork_url %>" width="100%" alt="<%=tune.title %>" />
+					</header>
+					<iframe width="100%" height="106" class="soundcloud-player" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= tune.id %>"></iframe>
+					<img src="<%= tune.artwork_url %>" width="100%" alt="<%=tune.title %>" />
 
-			   		<img src="<%= tune.waveform_url %>" />
+					<img src="<%= tune.waveform_url %>" />
 
-			    </article>   
-		    <% end %>
+				</article>   
+			<% end %>
 
 
 			
