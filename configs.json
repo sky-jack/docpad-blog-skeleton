@@ -1,0 +1,12 @@
+{
+	"WEBSITE_TITLE" : "website",
+	"TWITTER_ID" : "https://twitter.com/tenthousandyen",
+	"FACEBOOK_ID" : "http://www.facebook.com",
+	"SOUNDCLOUD_ID" : "http://soundcloud.com/gwilymgold",
+	"SOUNDCLOUD_ENDPOINT" :	"https://api.soundcloud.com/users/gwilymgold/tracks.json",
+	"SOUNDCLOUD_CLIENT_ID" : "19b869f8a22bf6b9e84806f2834a9b5a", 
+	"MIXCLOUD_URL"	: "http://api.mixcloud.com/skyjack/cloudcasts/",
+    "FLICKR_USER_ID" : "8212509@N06",
+    "FLICKR_API_KEY" : "a8713ffb48a016c09f9126fe500d82af",
+    "INSTAGRAM_USER_ID" : "5876296"	
+}

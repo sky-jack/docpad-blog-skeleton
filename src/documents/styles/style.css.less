@@ -15,6 +15,7 @@
 @base-color: #333;
 @darkest-color: #000;
 @lightest-color: #ececec;
+@mid-color: #ccc;
 @highlight-color: lighten(@darkest-color, 90%);
 @link-color: #AADD8E6;
 
@@ -32,30 +33,24 @@
    base typography
    ========================================================================== */
 
-@font-face {
-    font-family: 'archivo_narrowRegular';
-    src: url('../fonts/archivonarrow-regular-webfont.eot');
-    src: url('../fonts/archivonarrow-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/archivonarrow-regular-webfont.woff') format('woff'),
-         url('../fonts/archivonarrow-regular-webfont.ttf') format('truetype'),
-         url('../fonts/archivonarrow-regular-webfont.svg#archivo_narrowbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-}
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+
+
 
 @gutter: 10px;
 
 
 html { 
-    font-size: 75%;
+    font-size: 70%;
 
 } 
 
 body { 
     font-size: 14px;
     font-size: 1.7rem;
-    font-family: serif;
+    font-family: 'Montserrat';
 }
 
 a {
@@ -66,16 +61,13 @@ a {
 
 /* Heading typography */
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, caption, dt, th {
-   font-family: 'archivo_narrowRegular';
+  
 }
 
 /* ==========================================================================
    base layout
    ========================================================================== */
 
-.wrapper {
-
-}
 .grid {
     margin-left: auto;
     margin-right: auto;
@@ -89,10 +81,11 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, caption, dt, th {
 
 .logo {
     margin-bottom: 0.2em;
+    text-align: center;
 }
 
 .section {
-    text-align: center;
+    
 }
 
 .divider {
@@ -102,22 +95,22 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, caption, dt, th {
   margin-bottom:  5rem;
 
 }
+/* site specific styles */
+
+
 
 
 /* page module  class */
 
 .module {
-    border: @main-line;   
-    margin-bottom: @gutter *2;
-    overflow: hidden;
-    position: relative;
+  margin-bottom: @gutter *2;
+  overflow: hidden;
+  position: relative;
 }
 
 .big-thumb {
     width: 100%;
 }
-
-
 
 
 .nav  {
@@ -150,49 +143,18 @@ footer .lineup  li:last-child:after {
 /* Post Styles */
 
 .meta {
-  display: block;
-  font-style: italic;
+  display: inline;
+  color: @mid-color;
 }
 .meta .tags {
   display: inline-block;
 }
-h1 {
-  text-align: center;
-  display: block;
-}
+
 
 .soundcloud-player {
   position: absolute;
   top:  30%;
 
-}
-
-/* Pull out styles */
-
-.pull-out {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: url(/styles/img/black-opaque.png) repeat;
-  text-align: center;
-  
-}
-.pull-out h1 {
-  margin-bottom: 0;
-}
-.pull-out a {
-  display: inline-block;
-  color: @lightest-color;
-  text-decoration: none;
-  padding: 0.2em 0.4em;
-  margin-bottom: 0;
-}
-.pull-out .meta {
-  display: block;
-}
-.pull-out time {
-  display: none;
 }
 
 /*  center content  */
@@ -234,6 +196,13 @@ hr {
     height: 0px;
     padding-bottom: 97%;
     overflow: hidden;
+}
+
+
+.wrapped {
+      border: @main-line;   
+    
+    
 }
 /*
  * Image replacement

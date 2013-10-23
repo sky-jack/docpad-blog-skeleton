@@ -6,18 +6,17 @@ layout: 'default'
 
 <div class="grid">
 	<% for document in @getCollection('posts').toJSON()[@document.page.startIdx...@document.page.endIdx]: %>
-		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-3 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
-			<article class="square-item module">
-				<a href="<%= document.url %>" >
+		<div typeof="sioc:Page" about="<%= document.url %>" class="item col dsk-4 tab-4 mob-12 <%= 'active' if @document.url is document.url %>">
+			<article class="module">
+				<a href="<%= document.url %>" class="square-item" >
 					<img src="/images/<%= document.mainImage %>" class="big-thumb" />
 				</a>	
-				<header class="pull-out cramped">
-					<a class="h6 cramp" href="<%= document.url %>" property="dc:title"><%= document.title %></a>
-					<span class="meta smallprint">
-						<time datetime="<%= document.date.toDateString() %>"><%= document.date.toDateString() %></time>
-					</span>
+				<header class=" cramped">
+					<h1 class="smallprint" ><%= document.title %> <span class="meta smallprint">
+						<time datetime="<%= document.date.toDateString() %>"><%= document.date.getDay() %>/<%= document.date.getMonth() %>/<%= document.date.getFullYear() %> </time>
+					</span> </h1>
+					
 				</header>
-
 			</article>
 		</div>
 	<% end %>
@@ -63,13 +62,13 @@ layout: 'default'
 			<h1 class="h3"> Mixcloud </h4>
 			<% for mix in @feedr.feeds.mixcloud.data: %>
 			   <article class="square-item module">
-			   <header class="pull-out cramped">
-					  <h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
-				</header>
-				   
-						<a href="<%= mix.url %>" title="View on Mixcloud">
-							<img src="<%= mix.pictures.large %>" class="big-thumb" />
-						</a>
+					<a href="<%= mix.url %>" title="View on Mixcloud">
+						<img src="<%= mix.pictures.large %>" class="big-thumb" />
+					</a>
+
+					<header class="cramped">
+						<h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
+					</header>
 				</article>   
 			<% end %>
 			
@@ -89,13 +88,16 @@ layout: 'default'
 			  <% for tune in @feedr.feeds.soundCloud: %>
 				<article class="square-item module">
 					
-					<header class="pull-out cramped">
-					<h1 class="h6"><a href="<%= tune.permalink_url %>" title="View on Mixcloud" ><%=tune.title %></a> <h1>
-					</header>
+					
 					<iframe width="100%" height="106" class="soundcloud-player" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= tune.id %>"></iframe>
 					<img src="<%= tune.artwork_url %>" width="100%" alt="<%=tune.title %>" />
 
 					<img src="<%= tune.waveform_url %>" />
+					<header class=" cramped">
+						<h1 class="cramp smallprint" >
+							<a href="<%= tune.permalink_url %>" title="View on Mixcloud" ><%=tune.title %></a>
+						<h1>
+					</header>
 
 				</article>   
 			<% end %>

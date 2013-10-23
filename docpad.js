@@ -6,18 +6,21 @@
         return -1;
     };
 
+    var siteConfig = require('./configs.json');
+
+
 docpadConfig = {
     templateData: {
         site: {
             url: "http://website.com",
             oldUrls: ['www.website.com', 'website.herokuapp.com'],
-            title: "This Website",
+            title: siteConfig.WEBSITE_TITLE,
             description: "When your website appears in search results in say Google, the text here will be shown underneath your website's title.",
             keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
             social: {
-                Twitter: "https://twitter.com/tenthousandyen",
-                Soundcloud: "http://soundcloud.com/gwilymgold",
-                Facebook: "http://facebook.com"
+                Twitter:    siteConfig.TWITTER_ID,
+                Soundcloud: siteConfig.SOUNDCLOUD_ID,
+                Facebook: siteConfig.FACEBOOK_ID
             }
         },
         getPreparedTitle: function () {
@@ -137,14 +140,15 @@ docpadConfig = {
         feedr: {
           feeds: {
             mixcloud: {
-                url: "http://api.mixcloud.com/skyjack/cloudcasts/"
+                url: siteConfig.MIXCLOUD_URL
             },
             flickr: {
-                url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=8212509@N06&api_key=a8713ffb48a016c09f9126fe500d82af&extras=url_sq,url_t,url_m,url_o&per_page=4&page=2",
+                url: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&user_id=" + siteConfig.FLICKR_USER_ID + "&api_key=" + siteConfig.FLICKR_API_KEY + "&extras=url_sq,url_t,url_m,url_o&per_page=4&page=2",
                 clean: true
             },
             soundCloud: {
-                url: "https://api.soundcloud.com/users/gwilymgold/tracks.json?client_id=19b869f8a22bf6b9e84806f2834a9b5a"
+
+                url: siteConfig.SOUNDCLOUD_ENDPOINT + "?client_id=" + siteConfig.SOUNDCLOUD_CLIENT_ID
             }
           }
         }
