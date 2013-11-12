@@ -26,7 +26,7 @@ layout: 'default'
 		<ul class="lineup">
 			<!-- Previous Page Button -->
 			<% unless @hasPrevPage(): %>
-				<li class="disabled"><span>Prev</span></li>
+				<li ><span class="disabled" >Prev</span></li>
 			<% else: %>
 				<li><a href="<%= @getPrevPage() %>">Prev</a></li>
 			<% end %>
@@ -42,7 +42,7 @@ layout: 'default'
 
 			<!-- Next Page Button -->
 			<% unless @hasNextPage(): %>
-				<li class="disabled"><span>Next</span></li>
+				<li ><span class="disabled">Next</span></li>
 			<% else: %>
 				<li><a href="<%= @getNextPage() %>">Next</a></li>
 			<% end %>
