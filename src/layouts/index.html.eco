@@ -76,12 +76,14 @@ layout: 'default'
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12" id="flickr-section">
 		<h1 class="h3"> Flickr</h1>
+		<% if @feedr.feeds.flickr.photos: %>
 			<% for photo in @feedr.feeds.flickr.photos.photo: %>
 				<% photo = photo["@"] %>
 				<article class="square-item module">
 					<a href="<%= photo.url_n %>" title=" <%= photo.title %>"> <img src="<%= photo.url_m %>" /></a>
 				</article>   
 			<% end %>
+		<% end %>	
 	</div>
 	<div class="cramp col dsk-3  tab-4 mob-12">
 			<h1 class="h3">SoundCloud</h1>
