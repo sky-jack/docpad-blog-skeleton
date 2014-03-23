@@ -57,23 +57,22 @@ layout: 'default'
 
 
 <section class="grid typearea center section space-more" >
-	
-	<div class="cramp col dsk-3  tab-4 mob-12" id="mixcloud-section" >
-			<h1 class="h3"> Mixcloud </h4>
-			<% for mix in @feedr.feeds.mixcloud.data: %>
-			   <article class="square-item module">
-					<a href="<%= mix.url %>" title="View on Mixcloud">
-						<img src="<%= mix.pictures.large %>" class="big-thumb" />
-					</a>
+	<% if @feedr.feeds.flickr.photos: %>
+		<div class="cramp col dsk-3  tab-4 mob-12" id="mixcloud-section" >
+				<h1 class="h3"> Mixcloud </h4>
+				<% for mix in @feedr.feeds.mixcloud.data: %>
+					<article class="square-item module">
+						<a href="<%= mix.url %>" title="View on Mixcloud">
+							<img src="<%= mix.pictures.large %>" class="big-thumb" />
+						</a>
 
-					<header class="cramped">
-						<h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
-					</header>
-				</article>   
-			<% end %>
-			
-		
-	</div>
+						<header class="cramped">
+							<h1 class="h6"><a href="<%= mix.url %>" title="View on Mixcloud"><%=  mix.name %></a> <h1>
+						</header>
+					</article>   
+				<% end %>
+		</div>
+	<% end %>
 	<div class="cramp col dsk-3  tab-4 mob-12" id="flickr-section">
 		<h1 class="h3"> Flickr</h1>
 		<% if @feedr.feeds.flickr.photos: %>

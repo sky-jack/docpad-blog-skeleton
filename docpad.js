@@ -37,34 +37,31 @@ docpadConfig = {
             return this.site.keywords.concat(this.document.keywords || []).join(', ');
         },
         getGruntedStyles: function () {
-            var gruntConfig, styles, _;
+            var gruntConfig, styles, _, grunt;
             _ = require('underscore');
-            styles = [];
-            gruntConfig = require('./grunt-config.json');
-            _.each(gruntConfig, function (value, key) {
-                return styles = styles.concat(_.flatten(_.pluck(value, 'dest')));
-            });
-            styles = _.filter(styles, function (value) {
-                return value.indexOf('.min.css') > -1;
-            });
-            return _.map(styles, function (value) {
-                return value.replace('out', '');
-            });
+            grunt = require('grunt');
+            gruntConfig = require('./gruntconfig.json');
+            if (process.env.NODE_ENV === 'production' && grunt) {
+                styles = Object.getOwnPropertyNames(gruntConfig.cssmin.combine.files);
+                return styles[0].replace('out', '');
+            } else {
+                return _.map(gruntConfig.cssmin.combine.files['out/styles/all.min.css'], function(list, url){ return list.replace('out', '') });
+
+            }    
         },
         getGruntedScripts: function () {
-            var gruntConfig, scripts, _;
+           var gruntConfig, scripts, _, grunt;
             _ = require('underscore');
-            scripts = [];
-            gruntConfig = require('./grunt-config.json');
-            _.each(gruntConfig, function (value, key) {
-                return scripts = scripts.concat(_.flatten(_.pluck(value, 'dest')));
-            });
-            scripts = _.filter(scripts, function (value) {
-                return value.indexOf('.min.js') > -1;
-            });
-            return _.map(scripts, function (value) {
-                return value.replace('out', '');
-            });
+            grunt = require('grunt');
+            gruntConfig = require('./gruntconfig.json');
+
+            if (process.env.NODE_ENV === 'production' && grunt) {
+                scripts = Object.getOwnPropertyNames(gruntConfig.uglify.dist.files);
+                return scripts[0].replace('out', '');
+
+            } else {
+               return _.map(gruntConfig.uglify.dist.files['out/scripts/all.min.js'], function(list, url){ return list.replace('out', '') });
+            }
         }
     },
     collections: {
@@ -103,40 +100,13 @@ docpadConfig = {
                     return next();
                 }
             });
-        },
-        writeAfter: function (opts, next) {
-            var balUtil, command, docpad, rootPath, _;
-            docpad = this.docpad;
-            rootPath = docpad.config.rootPath;
-            balUtil = require('bal-util');
-            _ = require('underscore');
-            command = ["" + rootPath + "/node_modules/.bin/grunt", 'default'];
-            balUtil.spawn(command, {
-                cwd: rootPath,
-                output: true
-            }, function () {
-                var gruntConfig, src;
-                src = [];
-                gruntConfig = require('./grunt-config.json');
-                _.each(gruntConfig, function (value, key) {
-                    return src = src.concat(_.flatten(_.pluck(value, 'src')));
-                });
-                _.each(src, function (value) {
-                    return balUtil.spawn(['rm', value], {
-                        cwd: rootPath,
-                        output: false
-                    }, function () {});
-                });
-                balUtil.spawn(['find', '.', '-type', 'd', '-empty', '-exec', 'rmdir', '{}', '\;'], {
-                    cwd: rootPath + '/out',
-                    output: false
-                }, function () {});
-                return next();
-            });
-            return this;
         }
     },
-    plugins: {
+    plugins: { 
+        grunt: {
+          writeAfter: false,
+          generateAfter: ['cssmin', 'uglify']
+        },
         feedr: {
           feeds: {
             mixcloud: {

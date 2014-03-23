@@ -1,0 +1,25 @@
+{
+      "uglify": {
+        "options": {
+          "mangle": {
+          "except": ["jQuery", "Backbone"]
+          }
+        },
+        "dist": {
+          "files": {
+          "out/scripts/all.min.js": [
+            "out/vendor/jquery.js",
+            "out/vendor/modernizr.js",
+            "out/scripts/script.js"
+          ]
+          }
+        }
+      },
+      "cssmin": {
+        "combine": {
+          "files": {
+            "out/styles/all.min.css": ["out/styles/style.css"]
+          }
+        }
+      }
+  }
